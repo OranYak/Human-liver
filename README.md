@@ -22,7 +22,7 @@ For M2 and M6 Visium HD samples:
 cloupe file
 
 # Prerequisites:
-Matlab R2023a
+Matlab R2022a
 
 # Installation
 Download RAW input data files from Zenodo-
