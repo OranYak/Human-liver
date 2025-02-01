@@ -29,8 +29,13 @@ Download RAW input data files from Zenodo-
 https://zenodo.org/records/14783760?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjhjOTc0ZTc2LTNiN2YtNDg4OC04NDhmLTk3YTUxODkwYTE2YyIsImRhdGEiOnt9LCJyYW5kb20iOiJhZWQ3YWFlYWU1NGI2YTljZjUyZGY5Yzc0YWM4MTQ3NCJ9.cZvQN0jiLqdD7fqAa_6cRNINc4ywSJOogNcw2lgdUYdekF88Q9xCk7xqFLxOnkFzSJjw7Fw2127DB4N8mTIjuQ
 
 Run the the main scripts at the followind order:
+
 (notice that your directory should include all the Zenodo raw data, and the Matlab_functions directory that is also attached here)
-a1_import_data_raw_and_filtered_for_github.m
-a2_visium_12_patients_initial_QCs_for_github.m
-a3_visium_12_patients_zonation_reconstruction_for_github.m
+
+1- a1_import_data_raw_and_filtered_for_github.m
+
+2- a2_visium_12_patients_initial_QCs_for_github.m
+
+3- a3_visium_12_patients_zonation_reconstruction_for_github.m
+
 run time 10-12 min.
