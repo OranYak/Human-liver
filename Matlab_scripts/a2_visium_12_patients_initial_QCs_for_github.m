@@ -125,7 +125,7 @@ for i=1:length(v)
     t=v{i};
     fibrotic_spots=[];
     ind_fibrotic_spots=[];
-    input_path=['X:\oran\Data\Human_Liver_Project\Human_Liver_Visium\Loupe_categories\' v{i}.patient '\fibrotic_zones.csv'];
+    input_path = ([current_dir,'\Loupe_categories\', v{i}.patient,'\fibrotic_zones.csv']);
     if isfile(input_path)
         fibrotic_spots=read_loupe_barcode(input_path);
     else
@@ -151,7 +151,7 @@ for i=1:length(v)
     t=v{i};
     capsule_spots=[];
     ind_capsule_spots=[];
-    input_path=['X:\oran\Data\Human_Liver_Project\Human_Liver_Visium\Loupe_categories\' v{i}.patient '\capsule_zones.csv'];
+    input_path = ([current_dir,'\Loupe_categories\', v{i}.patient,'\capsule_zones.csv'])
     if isfile(input_path)
         capsule_spots=read_loupe_barcode(input_path);
     else
@@ -176,7 +176,7 @@ for i=1:length(v)
     t=v{i};
     lipid_spots=[];
     ind_lipid_spots=[];
-    input_path=['X:\oran\Data\Human_Liver_Project\Human_Liver_Visium\Loupe_categories\' v{i}.patient '\lipid_zones.csv'];
+    input_path = ([current_dir,'\Loupe_categories\', v{i}.patient,'\lipid_zones.csv'])
     if isfile(input_path)
         lipid_spots=read_loupe_barcode(input_path);
     else
