@@ -6,7 +6,7 @@
 
 %% add the path to all the necessary functions and define the working directory
 current_dir = cd; % In this folder you should have all  the Zenodo raw data, and the Matlab_functions folder from Github
-addpath([current_dir,'\Matlab_functions\']);
+addpath([current_dir,'\Matlab_functions']);
 
 % define the fixed parameters for all samples (same as function defult):
 
@@ -19,7 +19,7 @@ DIST_THRESH = inf;
 % set the path for the files:
 input_path = ([current_dir,'\human_raw_16_samples\']);
 pati = {'P2','P3','P6','P7','P14','P17','P18','P21','M1','M2','M3','M4','M5','M6','M7','M8'};
-metadata = readtable([input_path,'metadata.xlsx']);
+metadata = readtable([current_dir,'\human_samples_metadata.xlsx']);
 
 %% loop over all patients
 
@@ -34,24 +34,5 @@ for i=1:length(v)
     %v{i}.coor = v{i}.coor .* optional: v{i}.json.tissue_hires_scalef; % asjust coordianted to the slide image    
 end
 
-[Ia,Ib]=ismember(sig.gene_name(ind_markers),v{1}.gene_name);
-ind_hep_human=Ib(Ia);
-
-for i=1:length(v)
-    disp(upper(['***** computing mat norm over hepatocyte genes for ',pati{i},'*****']));
-    % v{i}.mat_norm is already established as v{i}.mat./sum(v{i}.mat)
-    v{i}.mat_norm_hep_genes_5_species=v{i}.mat./sum(v{i}.mat(ind_hep_5_species,:)); % ind_hep_5_species is 1344 genes
-    v{i}.ind_hep_5_species=ind_hep_5_species;
-    v{i}.mat_norm_hep_genes_only_human=v{i}.mat./sum(v{i}.mat(ind_hep_human,:)); % ind_hep_human is 1732 genes
-    v{i}.ind_hep_human=ind_hep_human;
-end
-
 disp(upper(['***** finished importing visium data for ',num2str(length(v)),' patients *****']));
 
-
-%% export to R the bg vector:
-output_dir = 'X:\oran\Data\Human_Liver_Project\Human_Liver_Visium\Human_Liver_Matlab\updated_scripts\data\processed\';
-for i =1:length(v)
-    t = v{i};
-    writetable(table(t.gene_name,t.bg_vector),[output_dir,t.patient,'_background_vec.csv']);
-end   
