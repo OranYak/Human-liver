@@ -73,8 +73,6 @@ portal_LM_genes=v{1}.gene_name(LM_PP_ind_corr);
 for i=1:length(v)
     t=v{i};
     v{i}.mat_norm_max=v{i}.mat_norm./max(v{i}.mat_norm,[],2);
-    v{i}.mat_norm_hep_genes_only_human_max=v{i}.mat_norm_hep_genes_only_human./max(v{i}.mat_norm_hep_genes_only_human,[],2); % added 23.5.2024 to compute eta also according to hep-normalized mat_norm 
-
     [Ia,Ib]=ismember(lower(central_LM_genes),lower(t.gene_name));
     v{i}.LM_pc_ind=Ib(Ia);
     [Ia,Ib]=ismember(lower(portal_LM_genes),lower(t.gene_name));
@@ -82,13 +80,9 @@ for i=1:length(v)
     if USE_MAX_NORM
         sum_pp=sum(v{i}.mat_norm_max(v{i}.LM_pp_ind,:));
         sum_pc=sum(v{i}.mat_norm_max(v{i}.LM_pc_ind,:));
-        sum_pp_hep_genes=nansum(v{i}.mat_norm_hep_genes_only_human_max(v{i}.LM_pp_ind,:)); % added 23.5.2024
-        sum_pc_hep_genes=nansum(v{i}.mat_norm_hep_genes_only_human_max(v{i}.LM_pc_ind,:)); % added 23.5.2024
     else
         sum_pp=sum(v{i}.mat_norm(v{i}.LM_pp_ind,:));
         sum_pc=sum(v{i}.mat_norm(v{i}.LM_pc_ind,:));
-        sum_pp_hep_genes=nansum(v{i}.mat_norm_hep_genes_only_human(v{i}.LM_pp_ind,:)); % added 23.5.2024
-        sum_pc_hep_genes=nansum(v{i}.mat_norm_hep_genes_only_human(v{i}.LM_pc_ind,:)); % added 23.5.2024
     end
     
     % v{i}.mat_norm is now v{i}.mat./sum(v{i}.mat), so the eta is computed
@@ -208,7 +202,7 @@ end
 %% export to category for Loupe
 for j=1:length(v)
     t=v{j};
-    filename=['X:\oran\Data\Human_Liver_Project\Human_Liver_Visium\Loupe_categories\' t.patient '\zonation_coors_21_11_2024_LM_genes_M2_TO_M8.csv']
+    filename=['### ENTER WANTED PATH AND FILE NAME ###']
     fid=fopen(filename,'w');
     for i=1:length(t.spot_name),
         str=t.spot_name{i};str(findstr(str,'_'))='-';
