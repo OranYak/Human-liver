@@ -28,3 +28,6 @@ Multi-linear regression analysis: multilinear_regression_analysis.m
 Computational pipeline for the mapping of Visium HD spots to single segmented cells: Mapping_spots_to_cells.groovy
 
 Computational pipeline for mapping snRNA-seq hepatocytes and NPCs zonation based on Visium HD: parse_snRNAseq_combined_atlas.m
+
+The data tables required for running the analysis are located in the same repository.
+The data files required for running the analysis are at:
