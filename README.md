@@ -13,10 +13,15 @@ https://zenodo.org/records/14795740?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6Ijg5NzU1M
 
 Run the the main scripts at the followind order:
 (notice that your directory should include all the Zenodo raw data, and the Matlab_functions directory that is also attached here)
+
 a1_import_data_raw_and_filtered_for_github.m
+
 a2_visium_12_patients_initial_QCs_for_github.m
+
 a3_visium_12_patients_zonation_reconstruction_for_github.m
+
 run time 10-12 min.
+
 This will result on outputiny v.mat, which is also uploaded here.
 
 For ferther analysis:
